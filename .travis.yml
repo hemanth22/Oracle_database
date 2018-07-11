@@ -9,7 +9,6 @@ services:
   - docker
 
 before_install:
-  - pip install Paste
 #pull the image from Docker Hub for the OS under test
   - docker pull sath89/oracle-12c
 
