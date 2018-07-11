@@ -9,6 +9,7 @@ services:
   - docker
 
 before_install:
+  - pip install Paste
 #pull the image from Docker Hub for the OS under test
   - docker pull sath89/oracle-12c
 
@@ -19,9 +20,11 @@ script:
 
 # Run container detached
   - docker run -d -p 8080:8080 -p 1521:1521 sath89/oracle-12c
+  - touch oracle.log
   - docker logs -f $(docker ps -aq)
-  - docker exec -it --name ${container_id} sath89/oracle-12c /bin/bash -c "netstat -nlpt"
-  - docker exec -it --name ${container_id} sath89/oracle-12c /bin/bash -c "netstat -nlpt;su oracle;cd $ORACLE_HOME;login.sh"
+  - docker exec -it $(docker ps -aq) /bin/bash -c "netstat -nlpt" >> oracle.log
+  - docker exec -it $(docker ps -aq) /bin/bash -c "netstat -nlpt;su oracle;cd $ORACLE_HOME;login.sh" >> oracle.log
+  - cat oracle.log
   - docker stop $(docker ps -aq)
   - docker rm $(docker ps -aq)
   - docker rmi $(docker images -aq)
