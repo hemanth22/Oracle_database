@@ -19,9 +19,9 @@ script:
 
 # Run container detached
   - docker run -d -p 8080:8080 -p 1521:1521 sath89/oracle-12c
-  - docker logs -f 
-  - docker exec -it --name ${container_id} /bin/bash -c "netstat -nlpt"
-  - docker exec -it --name ${container_id} /bin/bash -c "netstat -nlpt;su oracle;cd $ORACLE_HOME;login.sh"
+  - docker logs -f ${container_id}
+  - docker exec -it --name ${container_id} sath89/oracle-12c /bin/bash -c "netstat -nlpt"
+  - docker exec -it --name ${container_id} sath89/oracle-12c /bin/bash -c "netstat -nlpt;su oracle;cd $ORACLE_HOME;login.sh"
   - docker stop $(docker ps -aq)
   - docker rm $(docker ps -aq)
   - docker rmi $(docker images -aq)
