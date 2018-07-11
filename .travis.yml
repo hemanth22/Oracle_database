@@ -24,6 +24,7 @@ script:
   - docker exec -it --name ${container_id} /bin/bash -c "netstat -nlpt;su oracle;cd $ORACLE_HOME;login.sh"
   - docker stop $(docker ps -aq)
   - docker rm $(docker ps -aq)
+  - docker rmi $(docker images -aq)
   #- docker run -it --name ${container_id} centos:7 /bin/bash -c "yum -y install epel-release;yum -y install git;git clone https://github.com/hemanth22/CSVToCustomDSV.git;cd CSVToCustomDSV;./csv2dsv.sh"
 
 notifications:
