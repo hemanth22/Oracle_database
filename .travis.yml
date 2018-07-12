@@ -19,15 +19,15 @@ script:
   - export cleanup=false
 
 # Run container detached
-  - docker run -d -p 8080:8080 -p 1521:1521 sath89/oracle-12c
+  - sudo docker run -d -p 8080:8080 -p 1521:1521 sath89/oracle-12c
   - touch oracle.log
-  - docker logs -f $(docker ps -aq)
-  - docker exec -it $(docker ps -aq) /bin/bash -c "netstat -nlpt" >> oracle.log
-  - docker exec -it $(docker ps -aq) /bin/bash -c "netstat -nlpt;su oracle;cd $ORACLE_HOME;login.sh" >> oracle.log
+  - sudo docker logs -f $(docker ps -aq)
+  - sudo docker exec -it $(docker ps -aq) /bin/bash -c "netstat -nlpt" >> oracle.log
+  - sudo docker exec -it $(docker ps -aq) /bin/bash -c "netstat -nlpt;su oracle;cd $ORACLE_HOME;login.sh" >> oracle.log
   - cat oracle.log
-  - docker stop $(docker ps -aq)
-  - docker rm $(docker ps -aq)
-  - docker rmi $(docker images -aq)
+  - sudo docker stop $(docker ps -aq)
+  - sudo docker rm $(docker ps -aq)
+  - sudo docker rmi $(docker images -aq)
   #- docker run -it --name ${container_id} centos:7 /bin/bash -c "yum -y install epel-release;yum -y install git;git clone https://github.com/hemanth22/CSVToCustomDSV.git;cd CSVToCustomDSV;./csv2dsv.sh"
 
 notifications:
