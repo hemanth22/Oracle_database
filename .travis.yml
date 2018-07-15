@@ -24,8 +24,6 @@ script:
   - sudo docker logs --timestamps $(docker ps -aq)
   - sleep 300
   - sudo docker logs --timestamps $(docker ps -aq)
-  - sleep 300
-  - sudo docker logs --timestamps $(docker ps -aq)
   - sudo docker exec -it $(docker ps -aq) /bin/bash -c "netstat -nlpt" >> oracle.log
   - sudo docker exec -it $(docker ps -aq) /bin/bash -c "netstat -nlpt;su oracle;cd $ORACLE_HOME;login.sh" >> oracle.log
   - cat oracle.log
