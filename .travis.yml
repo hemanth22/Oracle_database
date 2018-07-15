@@ -22,11 +22,10 @@ script:
   - sudo docker run -d -p 8080:8080 -p 1521:1521 sath89/oracle-12c
   - touch oracle.log
   - sudo docker logs --timestamps $(docker ps -aq)
-  - sleep 300
+  - sleep 500
   - sudo docker logs --timestamps $(docker ps -aq)
-  - sudo docker exec -it $(docker ps -aq) /bin/bash -c "netstat -nlpt" >> oracle.log
-  - sudo docker exec -it $(docker ps -aq) /bin/bash -c "netstat -nlpt;su oracle;cd $ORACLE_HOME;login.sh" >> oracle.log
-  - cat oracle.log
+  - sudo docker exec -it $(docker ps -aq) /bin/bash -c "netstat -nlpt" 
+  - sudo docker exec -it $(docker ps -aq) /bin/bash -c "netstat -nlpt;su oracle;cd $ORACLE_HOME;login.sh"
   - sudo docker stop $(docker ps -aq)
   - sudo docker rm $(docker ps -aq)
   - sudo docker rmi $(docker images -aq)
