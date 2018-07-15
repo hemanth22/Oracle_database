@@ -12,6 +12,7 @@ before_install:
 #pull the image from Docker Hub for the OS under test
   - docker pull sath89/oracle-12c
   - sudo mkdir /docker-entrypoint-initdb.d
+  - sudo chmod 777 *
 
 script:
 #create a random file to store the container
