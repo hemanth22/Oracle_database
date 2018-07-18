@@ -25,8 +25,8 @@ script:
   - sudo docker logs --timestamps $(docker ps -aq)
   - sleep 500
   - sudo docker logs --timestamps $(docker ps -aq)
-  - sudo docker exec -it $(docker ps -aq) /bin/bash -c "netstat -nlpt" 
-  - sudo docker exec -it $(docker ps -aq) /bin/bash -c "netstat -nlpt;su oracle;cd $ORACLE_HOME;login.sh"
+  - sudo docker exec -it --user oracle $(docker ps -aq) /bin/bash -c "netstat -nlpt" 
+  - sudo docker exec -it --user oracle $(docker ps -aq) /bin/bash -c "netstat -nlpt;./login.sh"
   - sudo docker stop $(docker ps -aq)
   - sudo docker rm $(docker ps -aq)
   - sudo docker rmi $(docker images -aq)
