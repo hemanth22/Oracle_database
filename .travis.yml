@@ -10,7 +10,7 @@ services:
 
 before_install:
 #pull the image from Docker Hub for the OS under test
-  - docker pull sath89/oracle-12c
+  - docker pull bitroid/docker-oracle-12c
   - sudo mkdir /docker-entrypoint-initdb.d
   - sudo chmod -R 777 *
 
@@ -20,12 +20,11 @@ script:
   - export cleanup=false
 
 # Run container detached
-  - sudo docker run -d -p 8080:8080 -p 1521:1521 sath89/oracle-12c
+  - sudo docker run -d -p 8080:8080 -p 1521:1521 bitroid/docker-oracle-12c
   - touch oracle.log
   - sudo docker logs --timestamps $(docker ps -aq)
   - sleep 500
   - sudo docker logs --timestamps $(docker ps -aq)
-  - sudo docker exec -it --user oracle $(docker ps -aq) /bin/bash -c "apt-get -y install git" 
   - sudo docker exec -it --user oracle $(docker ps -aq) /bin/bash -c "netstat -nlpt" 
   - sudo docker exec -it --user oracle $(docker ps -aq) /bin/bash -c "netstat -nlpt;git clone https://github.com/hemanth22/Oracle_database.git;ls -la;cd Oracle_database;./login.sh"
   - sudo docker stop $(docker ps -aq)
