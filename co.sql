@@ -4,4 +4,4 @@ select * from emp;
 select * from dept;
 select * from bonus;
 select * from salgrade;
-@auto.sql
+@autos.sql
