@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  app:
+    image: sath89/oracle-12c:latest
+    ports:
+      - "8080:8080"
+      - "1521:1521"
+    stop_grace_period: 1m0s
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+
+    networks:
+      - fronter
+
+networks:
+  fronter:
