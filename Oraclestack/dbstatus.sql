@@ -1,0 +1,1 @@
+select database_status from v$instance;
