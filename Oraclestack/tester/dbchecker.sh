@@ -8,4 +8,4 @@ else
         echo "Initializing next script"
         bash nextscript.sh
         echo "Completed next script"
-fi
+if
