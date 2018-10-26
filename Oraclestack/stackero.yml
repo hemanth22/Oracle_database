@@ -8,18 +8,15 @@ services:
       - "1521:1521"
     stop_grace_period: 1m0s
     deploy:
-      replicas: 2
+      replicas: 1
       update_config:
         parallelism: 1
         delay: 40s
       restart_policy:
         condition: on-failure
         max_attempts: 3
-      placement:
-        constraints: [node.role == worker]
     networks:
       - fronter
-    command: ./builder.sh
 
 networks:
   fronter:
