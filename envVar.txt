@@ -1,0 +1,15 @@
+export ORACLE_SID=xe
+export ORACLE_HOME=/u01/app/oracle/product/12.1.0/xe
+export ORACLE_HOME_LISTNER=$ORACLE_HOME/bin/tnslsnr
+export LD_LIBARARY_PATH=$ORACLE_HOME/lib:$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlibs:/usr/lib:/usr/local/lib:$ORACLE_HOME/jdbc/lib
+export TNS_ADMIN=$ORACLE_HOME/network/admin
+export ORACLE_CLASSPATH=.:$ORACLE_HOME/jdbc/lib:$ORACLE_HOME/oc4j/jdbc/lib:$ORACLE_HOME/sqldeveloper/jdbc/lib:$ORACLE_HOME/bin:$ORACLE_HOME/jdbc/lib/ojdbc7.jar:$ORACLE_HOME/jlib/orai18n.jar
+export JBDC_LOC=$ORACLE_HOME/dmu/ide/macros
+export SQLPATH=$ORACLE_HOME/bin/sqlplus
+export SQLCLASS=$ORACLE_HOME/bin
+export LISENER=$ORACLE_HOME/bin/lsnrctl
+export DBCA=$ORACLE_HOME/bin/dbca
+export NETCA=$ORACLE_HOME/bin/netca
+export TNSPING=$ORACLE_HOME/bin/tnsping
+export EORA=$ORACLE_HOME/bin/oerr
+export NETM=$ORACLE_HOME/bin/netmgr

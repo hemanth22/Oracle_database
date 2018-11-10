@@ -15,7 +15,7 @@ services:
     networks:
       - fronter
   jsp:
-    image: bitroid/jsp-db-docker
+    image: bitroid/jsp-db-docker:latest
     ports:
       - "8888:8080"
     networks:
