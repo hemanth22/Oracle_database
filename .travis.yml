@@ -18,7 +18,7 @@ script:
   - export cleanup=false
 
 # Run container detached
-  - docker run -d -p 8080:8080 -p 1521:1521 sath89/oracle-12c
+  - docker run -d -p 8080:8080 -p 1521:1521 quay.io/maksymbilenko/oracle-12c
   - docker logs --timestamps $(docker ps -aq)
   - sleep 500
   - docker logs --timestamps $(docker ps -aq)
