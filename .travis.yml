@@ -10,7 +10,7 @@ services:
 
 before_install:
 #pull the image from Docker Hub for the OS under test
-  - docker pull sath89/oracle-12c
+  - docker pull quay.io/maksymbilenko/oracle-12c
 
 script:
 #create a random file to store the container
