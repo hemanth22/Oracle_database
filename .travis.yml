@@ -1,6 +1,9 @@
 #Required sudo for docker
 sudo: required
 language: bash
+branches:
+  only:
+  - master
 
 env:
   - container_id=${container_id:-$timestamp}
