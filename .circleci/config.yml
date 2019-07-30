@@ -34,7 +34,7 @@ jobs:
           name: Check docker up status.
           command: docker logs --timestamps $(docker ps -aq)
       - run:
-          name: Check docker up status.
+          name: Check docker operating system.
           command: docker exec -it --user root $(docker ps -aq) /bin/bash -c "cat /etc/*release"
       - run:
           name: Installing pre-requistes inside the docker.
