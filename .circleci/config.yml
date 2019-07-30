@@ -29,7 +29,7 @@ jobs:
           command: docker logs --timestamps $(docker ps -aq)
       - run:
           name: Sleep untill container is up and running.
-          command: sleep 500
+          command: sleep 300
       - run:
           name: Check docker up status.
           command: docker logs --timestamps $(docker ps -aq)
