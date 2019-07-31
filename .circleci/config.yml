@@ -40,8 +40,8 @@ jobs:
           name: Installing pre-requistes inside the docker.
           command: docker exec -it --user root $(docker ps -aq) /bin/bash -c "yum update -y;yum -y install git;yum -y install net-tools"
       - run:
-          name: Cloning project inside the docker.
-          command: docker exec -it --user root $(docker ps -aq) /bin/bash -c "git clone https://github.com/hemanth22/Oracle_database.git"
+          name: Cloning development project inside the docker.
+          command: docker exec -it --user root $(docker ps -aq) /bin/bash -c "git clone --branch develop https://github.com/hemanth22/Oracle_database.git"
       - run:
           name: Check project content inside the docker.
           command: docker exec -it --user root $(docker ps -aq) /bin/bash -c "chmod -R 777 Oracle_database;cd /Oracle_database;ls -la"
