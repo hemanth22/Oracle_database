@@ -50,7 +50,7 @@ jobs:
           command: docker exec -it --user oracle $(docker ps -aq) /bin/bash -c "netstat -nlpt"
       - run:
           name: Initializing my own script.
-          command: docker exec -it --user oracle $(docker ps -aq) /bin/bash -c "ls && cd Oracle_database && ls && bash login.sh && ls -la extraction.dsv && cat extraction.dsv"
+          command: docker exec -it --user oracle $(docker ps -aq) /bin/bash -c "ls && cd Oracle_database && ls && bash login.sh && ls -la"
       - run:
           name: Session closure after the test.
           command: docker stop $(docker ps -aq)
