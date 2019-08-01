@@ -52,6 +52,9 @@ jobs:
           name: Initializing my own script.
           command: docker exec -it --user oracle $(docker ps -aq) /bin/bash -c "ls && cd Oracle_database && ls && bash login.sh && ls -lah"
       - run:
+          name: Copy Oracle_database folder from docker.
+          command: docker cp $(docker ps -q):/Oracle_database .
+      - run:
           name: Session closure after the test.
           command: docker stop $(docker ps -aq)
       - run:
@@ -60,3 +63,5 @@ jobs:
       - run:
           name: Remove image..
           command: docker rmi $(docker images -aq)
+      - store_artifacts:
+          path: /app/Oracle_database/extraction.dsv
