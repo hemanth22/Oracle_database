@@ -10,15 +10,8 @@ SET TRIMOUT ON
 SET VERIFY OFF
 SET ARRAY 500
 SET WRAP ON
-SPOOL extraction.dsv
-SELECT ‘EMPNO;ENAME;JOB;MGR;HIREDATE;SAL;COMM;DEPTNO’ FROM dual;
-select EMPNO||’;’||
-ENAME||’;’||
-JOB||’;’||
-MGR||’;’||
-HIREDATE||’;’||
-SAL||’;’||
-COMM||’;’||
-DEPTNO
-from emp;
+SPOOL extraction.txt
+select 'EMPNO'||';'||'ENAME'||';'||'JOB'||';'||'MGR'||';'||'DEPTNO' from emp
+union
+select EMPNO||';'||ENAME||';'||JOB||';'||MGR||';'||DEPTNO from emp;
 SPOOL OFF
