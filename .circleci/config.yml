@@ -64,4 +64,4 @@ jobs:
           name: Remove image..
           command: docker rmi $(docker images -aq)
       - store_artifacts:
-          path: /app/Oracle_database/extraction.dsv
+          path: /app/Oracle_database/extraction.txt
