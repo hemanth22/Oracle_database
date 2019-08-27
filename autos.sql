@@ -11,7 +11,7 @@ SET VERIFY OFF
 SET ARRAY 500
 SET WRAP ON
 SPOOL extraction.txt
-select 'EMPNO'||';'||'ENAME'||';'||'JOB'||';'||'MGR'||';'||'DEPTNO' from emp
+select 'EMPNO'||';'||'ENAME'||';'||'JOB'||';'||'MGR'||';'||'DEPTNO' from dual
 union
 select EMPNO||';'||ENAME||';'||JOB||';'||MGR||';'||DEPTNO from emp;
 SPOOL OFF
